@@ -8,12 +8,12 @@ import java.time.Clock
 import java.time.LocalDateTime
 import java.util.UUID
 
-abstract class TimestampedTable : UUIDTable() {
+abstract class TimestampedTable(val name: String) : UUIDTable(name) {
     val createdAt = datetime("created_at").clientDefault { LocalDateTime.now(Clock.systemUTC()) }
     val updatedAt = datetime("updated_at").clientDefault { LocalDateTime.now(Clock.systemUTC()) }
 }
 
-object Users : TimestampedTable() {
+object Users : TimestampedTable("users") {
     val age = varchar("age", 10)
     val hearingDifficulties = bool("hearing_difficulties")
     val listeningTestParticipation = bool("listening_test_participation")
@@ -22,11 +22,11 @@ object Users : TimestampedTable() {
     val metadata = text("metadata")
 }
 
-object Questions : TimestampedTable() {
+object Questions : TimestampedTable("questions") {
     val audioFilename = varchar("audio_filename", 255)
 }
 
-object Answers : TimestampedTable() {
+object Answers : TimestampedTable("answers") {
     val userId = reference("user_id", Users)
     val questionId = reference("question_id", Questions)
     val audioFilename = varchar("audio_filename", 255)
@@ -35,13 +35,13 @@ object Answers : TimestampedTable() {
     val ensembleWidth = float("ensemble_width")
 }
 
-object Comments : TimestampedTable() {
+object Comments : TimestampedTable("comments") {
     val userId = reference("user_id", Users)
     val questionId = reference("question_id", Questions)
     val message = text("message")
 }
 
-object Messages : TimestampedTable() {
+object Messages : TimestampedTable("messages") {
     val userId = reference("user_id", Users)
     val content = text("message")
 }
