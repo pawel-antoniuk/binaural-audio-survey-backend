@@ -12,7 +12,7 @@ class UserEntity(id: EntityID<UUID>) : UUIDEntity(id) {
     var hearingDifficulties by Users.hearingDifficulties
     var listeningTestParticipation by Users.listeningTestParticipation
     var headphonesMakeAndModel by Users.headphonesMakeAndModel
-    var identifier by Users.identifier
+    var customIdentifier by Users.customIdentifier
     var metadata by Users.metadata
 }
 

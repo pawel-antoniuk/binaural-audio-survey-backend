@@ -44,6 +44,6 @@ data class User(val id: String, val questionnaire: Questionnaire, val metadata: 
         val hearingDifficulties: Boolean,
         val listeningTestParticipation: Boolean,
         val headphonesMakeAndModel: String = "",
-        val identifier: String? = null
+        val customIdentifier: String? = null
     )
 }

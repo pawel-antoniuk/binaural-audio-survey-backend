@@ -17,8 +17,8 @@ object Users : TimestampedTable("users") {
     val age = varchar("age", 10)
     val hearingDifficulties = bool("hearing_difficulties")
     val listeningTestParticipation = bool("listening_test_participation")
-    val headphonesMakeAndModel = varchar("headphones_make_model", 255)
-    val identifier = varchar("identifier", 255).nullable()
+    val headphonesMakeAndModel = text("headphones_make_model")
+    val customIdentifier = text("identifier").nullable()
     val metadata = text("metadata")
 }
 

@@ -35,7 +35,7 @@ fun Route.user() {
                     hearingDifficulties = user.questionnaire.hearingDifficulties
                     listeningTestParticipation = user.questionnaire.listeningTestParticipation
                     headphonesMakeAndModel = user.questionnaire.headphonesMakeAndModel
-                    identifier = user.questionnaire.identifier
+                    customIdentifier = user.questionnaire.customIdentifier
                     metadata = refineMetadata(user.metadata)
                 }
             }
