@@ -23,13 +23,13 @@ object Users : TimestampedTable("users") {
 }
 
 object Questions : TimestampedTable("questions") {
-    val audioFilename = varchar("audio_filename", 255)
+    val audioFilename = text("audio_filename")
 }
 
 object Answers : TimestampedTable("answers") {
     val userId = reference("user_id", Users)
     val questionId = reference("question_id", Questions)
-    val audioFilename = varchar("audio_filename", 255)
+    val audioFilename = text("audio_filename")
     val leftAngle = float("left_angle")
     val rightAngle = float("right_angle")
     val ensembleWidth = float("ensemble_width")
